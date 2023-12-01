@@ -101,6 +101,24 @@ const Form = () => {
 
   return (
     <div className="w-11/12 mx-auto">
+      <div className="flex justify-center items-center">
+        {steps.map((step) => (
+          <div
+            key={step.stepNo}
+            className={`flex items-center justify-center w-10 rounded-full mx-auto py-2 ${
+              step.stepNo === currentStep ? "bg-blue-500" : "bg-gray-300"
+            }`}
+          >
+            <h1
+              className={`text-white font-bold text-xl ${
+                step.stepNo === currentStep ? "text-white" : "text-gray-700"
+              }`}
+            >
+              {step.stepNo}
+            </h1>
+          </div>
+        ))}
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>{currentStepComponent}</form>
     </div>
   );
